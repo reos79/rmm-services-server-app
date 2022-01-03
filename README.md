@@ -55,6 +55,11 @@ Get the code ``git clone https://github.com/reos79/rmm-services-server-app.git``
 Execute the command ``mvn clean package spring-boot:run``
 
 ## Services
+The services run on the current machine on port 8080
+``http://localhost:8080``
+
+This is a Postman collection that may help to call the services
+``RMM.postman_collection.json``
 
 #### Login
 Allows to get a JWT Token for authorization, this token must be used in the authorization header of the other services.
