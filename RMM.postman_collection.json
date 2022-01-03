@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "0e6f97b7-32b5-46b0-b94b-12ce8b9f84f1",
+		"name": "RMM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Devices",
+			"item": [
+				{
+					"name": "devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjQwOTY1MzM2LCJleHAiOjE2NDA5NjU5MzZ9.0OH6izMmYDY51NmPfUVSq6O840mNF8Wmij9E5cgUs3a3vljuS6dcgK-cAqQSLjgTHY-V6BYynLLIWym5Khb09Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/customers/1/devices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"1",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjQwOTY1MzM2LCJleHAiOjE2NDA5NjU5MzZ9.0OH6izMmYDY51NmPfUVSq6O840mNF8Wmij9E5cgUs3a3vljuS6dcgK-cAqQSLjgTHY-V6BYynLLIWym5Khb09Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/customers/1/devices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"1",
+								"devices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjQwOTY1MzM2LCJleHAiOjE2NDA5NjU5MzZ9.0OH6izMmYDY51NmPfUVSq6O840mNF8Wmij9E5cgUs3a3vljuS6dcgK-cAqQSLjgTHY-V6BYynLLIWym5Khb09Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Device2-mod\",\r\n    \"type\": \"MAC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers/1/devices/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"1",
+								"devices",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjQwOTY1MzM2LCJleHAiOjE2NDA5NjU5MzZ9.0OH6izMmYDY51NmPfUVSq6O840mNF8Wmij9E5cgUs3a3vljuS6dcgK-cAqQSLjgTHY-V6BYynLLIWym5Khb09Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/customers/1/devices/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"1",
+								"devices",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjQwOTY1MzM2LCJleHAiOjE2NDA5NjU5MzZ9.0OH6izMmYDY51NmPfUVSq6O840mNF8Wmij9E5cgUs3a3vljuS6dcgK-cAqQSLjgTHY-V6BYynLLIWym5Khb09Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Device2\",\r\n    \"type\": \"MAC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers/1/devices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"1",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "services",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjQwOTY1MzM2LCJleHAiOjE2NDA5NjU5MzZ9.0OH6izMmYDY51NmPfUVSq6O840mNF8Wmij9E5cgUs3a3vljuS6dcgK-cAqQSLjgTHY-V6BYynLLIWym5Khb09Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/customers/1/services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"1",
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjQwOTY1MzM2LCJleHAiOjE2NDA5NjU5MzZ9.0OH6izMmYDY51NmPfUVSq6O840mNF8Wmij9E5cgUs3a3vljuS6dcgK-cAqQSLjgTHY-V6BYynLLIWym5Khb09Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/customers/1/services/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"1",
+								"services",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA4NzE1MywiZXhwIjoxNjQxMDg3NzUzfQ.qrXT8xjgT1G8Iu3NmC-_GFUpFvP6P4QmT0llLbelkVzkxmn5IhlXVOA5-XH9RgSl1M0MoK6UBtoA-MW4XP6QAw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/customers/1/services/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"1",
+								"services",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ProformaInvoice",
+			"item": [
+				{
+					"name": "ProformaInvoice",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjQwOTY1MzM2LCJleHAiOjE2NDA5NjU5MzZ9.0OH6izMmYDY51NmPfUVSq6O840mNF8Wmij9E5cgUs3a3vljuS6dcgK-cAqQSLjgTHY-V6BYynLLIWym5Khb09Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/customers/1/services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"1",
+								"services"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"user1\",\r\n    \"password\" : \"pwd1\"  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
