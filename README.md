@@ -52,7 +52,7 @@ Make sure the ``port 8080`` is free.
 
 Get the code ``git clone https://github.com/reos79/rmm-services-server-app.git``
 
-Execute the command ``mvn clean package spring-boot:run``
+In the project directory ``rmm-services-server-app`` execute the command ``mvn clean package spring-boot:run``
 
 ## Services
 The services run on the current machine on port 8080
