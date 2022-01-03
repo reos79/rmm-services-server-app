@@ -1,4 +1,4 @@
-#RMM REST API
+# RMM REST API
 
 ## Table of Contents  
 **[Introduction](#introduction)**<br>
@@ -8,16 +8,16 @@
 **[Services](#services)**<br>
 **[Database admin web console](#database-admin-web-console)**<br>
 
-##Introduction
+## Introduction
 A Remote Monitoring and Management (RMM) company provides services that monitor and manage devices through this REST API.
 
-##Prerequisites
+## Prerequisites
 - JDK 11 
 - Maven 3.6.x or later
 
-##Configuration
+## Configuration
 
-###Database
+### Database
 The application uses in memory H2 database for simplicity. There is no need to install it.
 Initially it comes loaded with the following data:
 
@@ -33,7 +33,7 @@ The script with the initial data can be found in
 |user5   |pwd5    | 5          |
 |user6   |pwd6    | 6          |
 
-###Property file
+### Property file
 The application configuration can be found in
 ``rmm-services-server-app/src/main/resources/application.properties``
 
@@ -47,44 +47,44 @@ There are three main properties
 
 
 
-##How to run the application
+## How to run the application
 Make sure the ``port 8080`` is free.
 
 Get the code ``git clone https://github.com/reos79/rmm-services-server-app.git``
 
 Execute the command ``mvn clean package spring-boot:run``
 
-##Services
+## Services
 
-####Login
+#### Login
 Allows to get a JWT Token for authorization, this token must be used in the authorization header of the other services.
 
-#####Endpoint
+##### Endpoint
 ``POST /authenticate``
-#####Request Body
+##### Request Body
 ```
 {
     "username" : "user1",
     "password" : "pwd1"  
 }
 ```
-#####Important Request Headers
+##### Important Request Headers
 Content-Type:application/json
-#####Response Body
+##### Response Body
 ```
 {
     "token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTE3NjYwNCwiZXhwIjoxNjQxMTc3MjA0fQ.JFvslwgI-tGDcMHM94yujADhtviaZMRax4hDOfHfsqKdHjh5idPObGRsQPq3B0mGLt9i4hAEnLiWL0ZL7bhfRg"
 }
 ```
 
-####Devices
+#### Devices
 Finds all customer devices.
 
-#####Endpoint
+##### Endpoint
 ``GET customers/{customerId}/devices``
-#####Important Request Headers
+##### Important Request Headers
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA5MTk2NSwiZXhwIjoxNjQxMDkyNTY1fQ.Jx4Xnur7t-JLItt2_NDi4i2EVW7vGNeSihlmVu5fegZ37Aoxa-Isom_bGSBWJ7Wgv3llozys9yw4b96Pus9xmQ
-#####Response Body
+##### Response Body
 ```
 [
     {
@@ -95,14 +95,14 @@ Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidX
 ]
 ```
 
-####Device
+#### Device
 Finds a customer devices by id.
 
-#####Endpoint
+##### Endpoint
 ``GET customers/{customerId}/devices/{deviceId}``
-#####Important Request Headers
+##### Important Request Headers
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA5MTk2NSwiZXhwIjoxNjQxMDkyNTY1fQ.Jx4Xnur7t-JLItt2_NDi4i2EVW7vGNeSihlmVu5fegZ37Aoxa-Isom_bGSBWJ7Wgv3llozys9yw4b96Pus9xmQ
-#####Response Body
+##### Response Body
 ```
 {
     "id": 1,
@@ -110,22 +110,22 @@ Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidX
     "type": "MAC"
 }
 ```
-####Create device
+#### Create device
 Allows to create a device.
 
-#####Endpoint
+##### Endpoint
 ``POST /customers/{customerId}/devices``
-#####Request Body
+##### Request Body
 ```
 {
     "name": "Device5",
     "type": "WINDOWS_SERVER"
 }
 ```
-#####Important Request Headers
+##### Important Request Headers
 Content-Type:application/json
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA5MTk2NSwiZXhwIjoxNjQxMDkyNTY1fQ.Jx4Xnur7t-JLItt2_NDi4i2EVW7vGNeSihlmVu5fegZ37Aoxa-Isom_bGSBWJ7Wgv3llozys9yw4b96Pus9xmQ
-#####Response Body
+##### Response Body
 ```
 {
     "id": 6,
@@ -133,22 +133,22 @@ Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidX
     "type": "WINDOWS_SERVER"
 }
 ```
-####Update device
+#### Update device
 Allows to update a device.
 
-#####Endpoint
+##### Endpoint
 ``PUT /customers/{customerId}/devices/{deviceId}``
-#####Request Body
+##### Request Body
 ```
 {
     "name": "Device2",
     "type": "MAC"
 }
 ```
-#####Important Request Headers
+##### Important Request Headers
 Content-Type:application/json
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA5MTk2NSwiZXhwIjoxNjQxMDkyNTY1fQ.Jx4Xnur7t-JLItt2_NDi4i2EVW7vGNeSihlmVu5fegZ37Aoxa-Isom_bGSBWJ7Wgv3llozys9yw4b96Pus9xmQ
-#####Response Body
+##### Response Body
 ```
 {
     "id": 2,
@@ -156,23 +156,23 @@ Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidX
     "type": "MAC"
 }
 ```
-####Delete device
+#### Delete device
 Allows to delete a device.
 
-#####Endpoint
+##### Endpoint
 ``DELETE /customers/{customerId}/devices/{deviceId}``
 
-#####Important Request Headers
+##### Important Request Headers
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA5MTk2NSwiZXhwIjoxNjQxMDkyNTY1fQ.Jx4Xnur7t-JLItt2_NDi4i2EVW7vGNeSihlmVu5fegZ37Aoxa-Isom_bGSBWJ7Wgv3llozys9yw4b96Pus9xmQ
 
-####List Services
+#### List Services
 Finds all customer services.
 
-#####Endpoint
+##### Endpoint
 ``GET customers/{customerId}/services``
-#####Important Request Headers
+##### Important Request Headers
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA5MTk2NSwiZXhwIjoxNjQxMDkyNTY1fQ.Jx4Xnur7t-JLItt2_NDi4i2EVW7vGNeSihlmVu5fegZ37Aoxa-Isom_bGSBWJ7Wgv3llozys9yw4b96Pus9xmQ
-#####Response Body
+##### Response Body
 ```
 [
     {
@@ -181,32 +181,32 @@ Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidX
     }
 ]
 ```
-####Add service
+#### Add service
 Allows to add a service to a customer.
 
-#####Endpoint
+##### Endpoint
 ``POST /customers/{customerId}/services/{serviceId}``
 
-#####Important Request Headers
+##### Important Request Headers
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA5MTk2NSwiZXhwIjoxNjQxMDkyNTY1fQ.Jx4Xnur7t-JLItt2_NDi4i2EVW7vGNeSihlmVu5fegZ37Aoxa-Isom_bGSBWJ7Wgv3llozys9yw4b96Pus9xmQ
 
-####Remove service
+#### Remove service
 Allows to remove a service from a customer.
 
-#####Endpoint
+##### Endpoint
 ``DELETE /customers/{customerId}/services/{serviceId}``
 
-#####Important Request Headers
+##### Important Request Headers
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA5MTk2NSwiZXhwIjoxNjQxMDkyNTY1fQ.Jx4Xnur7t-JLItt2_NDi4i2EVW7vGNeSihlmVu5fegZ37Aoxa-Isom_bGSBWJ7Wgv3llozys9yw4b96Pus9xmQ
 
-####Proforma invoice
+#### Proforma invoice
 Gets the proforma invoice.
 
-#####Endpoint
+##### Endpoint
 ``GET customers/{customerId}/proformaInvoice``
-#####Important Request Headers
+##### Important Request Headers
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcjEiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiY3VzdG9tZXIiOjEsImlhdCI6MTY0MTA5MTk2NSwiZXhwIjoxNjQxMDkyNTY1fQ.Jx4Xnur7t-JLItt2_NDi4i2EVW7vGNeSihlmVu5fegZ37Aoxa-Isom_bGSBWJ7Wgv3llozys9yw4b96Pus9xmQ
-#####Response Body
+##### Response Body
 ```
 {
     "detail": [
@@ -231,7 +231,7 @@ Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidX
 }
 ```
 
-##Database admin web console
+## Database admin web console
 In order to manage the H2 database the admin web console has been exposed in the URL
 
 ```
